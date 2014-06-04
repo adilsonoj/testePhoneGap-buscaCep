@@ -17,13 +17,18 @@
 
    
         function onDeviceReady() {
-            buscaCep();
+            
         }
 
-            function buscaCep(){
-                $(document).ready(function () {
-                    $("#content").append("<ul></ul>");
-                        var json = $.getJSON( "http://cep.republicavirtual.com.br/web_cep.php?cep=23068155&formato=json", function(data) {
+            
+            $(document).ready(function(){
+                $("#btn1").click(function(event){
+                        event.preventDefault();
+                        var cep = $('#cep').val();
+                        alert(cep);
+                        var url = "http://cep.republicavirtual.com.br/web_cep.php?cep="+cep+"&formato=json";
+                        $("#content").append("<ul></ul>");
+                        var json = $.getJSON( url, function(data) {
                             alert( "success" );
                             var uf = data.uf;
                             var cidade = data.cidade;
@@ -37,11 +42,15 @@
                             $("<li></li>").html(bairro).appendTo("#content ul");
                             $("<li></li>").html(cidade +"-"+ uf).appendTo("#content ul");
 
-                        })
-
-                        
+                        })         
                 });
-            }
+            });
+            
+
+
+            
+                                     
+                  
 </script>
 </head>
 <body>
@@ -49,6 +58,12 @@
 <div data-role="header">
 <h1>Endereço</h1>
 </div>
+ <form id="form" method="post" >
+        <div class="form-element">
+            <label for="cep">CEP</label>
+            <input id="cep" name="cep" type="text" placeholder="required" />
+            <input type='submit' value='OK' id="btn1" name="ok" />
+        </div>
 
 <div id="content" data-role="content">
 

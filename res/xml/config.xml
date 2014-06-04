@@ -20,14 +20,14 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         id        = "io.cordova.helloCordova"
         version   = "2.0.0">
-    <name>Hello Cordova</name>
+    <name>BuscaCEP</name>
 
     <description>
-        A sample Apache Cordova application that responds to the deviceready event.
+        Teste de busca CEP com Jquery
     </description>
 
     <author href="http://cordova.io" email="dev@cordova.apache.org">
-        Apache Cordova Team
+        Adilson Oliveira
     </author>
 
     <access origin="*"/>
